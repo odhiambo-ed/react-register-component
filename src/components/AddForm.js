@@ -1,5 +1,5 @@
 import React from 'react';
-import { Row, Col, Card, Form } from 'react-bootstrap';
+import { Row, Col, Card, Form, Button } from 'react-bootstrap';
 
 const AddForm = () => {
   return (
@@ -13,42 +13,53 @@ const AddForm = () => {
                               <h2 className="fw-bold mb-2 text-center text-uppercase">Ed Form</h2>
                               <div className="mb-3">
                                   <Form>
-                                      <Form.Group>
+                                      <Form.Group className='mb-3'>
                                           <Form.Label>Username</Form.Label>
                                           <Form.Control
                                               placeholder='Enter Your Username'
                                               type='text'
                                           />
                                       </Form.Group>
-                                      <Form.Group>
+                                      <Form.Group className='mb-3'>
                                           <Form.Label>Email</Form.Label>
                                           <Form.Control
                                             placeholder='Enter Your Email'
                                             type='email'
                                           />
                                       </Form.Group>
-                                      <Form.Group>
+                                      <Form.Group className='mb-3'>
                                           <Form.Label>Date Of Birth</Form.Label>
                                           <Form.Control
                                               placeholder='Enter Your DOB'
                                               type='date'
                                           />
                                       </Form.Group>
-                                      <Form.Group>
+                                      <Form.Group className='mb-3'>
                                           <Form.Label>Password</Form.Label>
                                           <Form.Control
                                               placeholder='Password'
                                               type='password'
                                           />
                                       </Form.Group>
-                                      <Form.Group>
+                                      <Form.Group className='mb-3'>
                                           <Form.Label>Confirm Password</Form.Label>
                                           <Form.Control
                                               placeholder='Confirm Password'
                                               type='password'
                                           />
                                       </Form.Group>
+                                      <div className="d-grid">
+                                          <Button variant='primary' type='submit'>Create Account</Button>
+                                      </div>
                                   </Form>
+                                  <div className="mt-3">
+                                      <p className="mb-0  text-center">
+                                          Already have an account??{" "}
+                                          <a href="{''}" className="text-primary fw-bold">
+                                              Sign In
+                                          </a>
+                                      </p>
+                                  </div>
                               </div>
                           </div>
                       </Card.Body>
