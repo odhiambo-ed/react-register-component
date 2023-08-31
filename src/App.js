@@ -1,10 +1,13 @@
 import './App.css';
+import { Container } from 'react-bootstrap';
 
 function App() {
   return (
-    <div className="App">
-      <h1 className='text-danger'>Hello React</h1>
-    </div>
+    <>
+      <container>
+        
+      </container>
+    </>
   );
 }
 
