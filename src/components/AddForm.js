@@ -10,12 +10,10 @@ const AddForm = () => {
         cpassword: ""
     });
 
-    const { username, email, dob, password, cpassword } = values;
-
     const handleChange = (e) => {
         const { name, value } = e.target;
-        setValues(prevValues => ({
-            ...prevValues,
+        setValues(values => ({
+            ...values,
             [name]: value
         }));
     }
@@ -35,7 +33,8 @@ const AddForm = () => {
                                           <Form.Control
                                               placeholder='Enter Your Username'
                                               type='text'
-                                              value={values[username]}
+                                              name='username'
+                                              value={values.username}
                                               onChange={handleChange}
                                           />
                                       </Form.Group>
@@ -44,7 +43,8 @@ const AddForm = () => {
                                           <Form.Control
                                             placeholder='Enter Your Email'
                                               type='email'
-                                              value={values[email]}
+                                              name='email'
+                                              value={values.email}
                                               onChange={handleChange}
                                           />
                                       </Form.Group>
@@ -53,7 +53,8 @@ const AddForm = () => {
                                           <Form.Control
                                               placeholder='Enter Your DOB'
                                               type='date'
-                                              value={values[dob]}
+                                              name='dob'
+                                              value={values.dob}
                                               onChange={handleChange}
                                           />
                                       </Form.Group>
@@ -62,7 +63,8 @@ const AddForm = () => {
                                           <Form.Control
                                               placeholder='Password'
                                               type='password'
-                                              value={values[password]}
+                                              name='password'
+                                              value={values.password}
                                               onChange={handleChange}
                                           />
                                       </Form.Group>
@@ -71,7 +73,8 @@ const AddForm = () => {
                                           <Form.Control
                                               placeholder='Confirm Password'
                                               type='password'
-                                              value={values[cpassword]}
+                                              name='cpassword'
+                                              value={values.cpassword}
                                               onChange={handleChange}
                                           />
                                       </Form.Group>
