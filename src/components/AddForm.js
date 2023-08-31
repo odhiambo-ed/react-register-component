@@ -1,7 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Row, Col, Card, Form, Button } from 'react-bootstrap';
 
 const AddForm = () => {
+    const [values, setValues] = useState({
+        username: "",
+        email: "",
+        dob: "",
+        password: "",
+        cpassword: ""
+    });
+
+    const { username, email, dob, password, cpassword } = values;
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setValues(prevValues => ({
+            ...prevValues,
+            [name]: value
+        }));
+    }
   return (
     <>
       <Row className="vh-100 d-flex justify-content-center align-items-center">
@@ -18,13 +35,17 @@ const AddForm = () => {
                                           <Form.Control
                                               placeholder='Enter Your Username'
                                               type='text'
+                                              value={values[username]}
+                                              onChange={handleChange}
                                           />
                                       </Form.Group>
                                       <Form.Group className='mb-3'>
                                           <Form.Label>Email</Form.Label>
                                           <Form.Control
                                             placeholder='Enter Your Email'
-                                            type='email'
+                                              type='email'
+                                              value={values[email]}
+                                              onChange={handleChange}
                                           />
                                       </Form.Group>
                                       <Form.Group className='mb-3'>
@@ -32,6 +53,8 @@ const AddForm = () => {
                                           <Form.Control
                                               placeholder='Enter Your DOB'
                                               type='date'
+                                              value={values[dob]}
+                                              onChange={handleChange}
                                           />
                                       </Form.Group>
                                       <Form.Group className='mb-3'>
@@ -39,6 +62,8 @@ const AddForm = () => {
                                           <Form.Control
                                               placeholder='Password'
                                               type='password'
+                                              value={values[password]}
+                                              onChange={handleChange}
                                           />
                                       </Form.Group>
                                       <Form.Group className='mb-3'>
@@ -46,6 +71,8 @@ const AddForm = () => {
                                           <Form.Control
                                               placeholder='Confirm Password'
                                               type='password'
+                                              value={values[cpassword]}
+                                              onChange={handleChange}
                                           />
                                       </Form.Group>
                                       <div className="d-grid">
