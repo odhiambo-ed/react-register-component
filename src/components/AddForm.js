@@ -10,6 +10,14 @@ const AddForm = () => {
         cpassword: ""
     });
 
+    const [errormessages, setErrorMessages] = useState({
+        username: "",
+        email: "",
+        dob: "",
+        password: "",
+        cpassword: ""
+    });
+
     const handleChange = (e) => {
         const { name, value } = e.target;
         setValues(values => ({
@@ -17,6 +25,7 @@ const AddForm = () => {
             [name]: value
         }));
     }
+
   return (
     <>
       <Row className="vh-100 d-flex justify-content-center align-items-center">
@@ -36,7 +45,11 @@ const AddForm = () => {
                                               name='username'
                                               value={values.username}
                                               onChange={handleChange}
+                                              isInvalid={errormessages.username !== ""}
                                           />
+                                          <Form.Control.Feedback type='invalid'>
+                                            {errormessages.username}
+                                          </Form.Control.Feedback>
                                       </Form.Group>
                                       <Form.Group className='mb-3'>
                                           <Form.Label>Email</Form.Label>
@@ -79,7 +92,7 @@ const AddForm = () => {
                                           />
                                       </Form.Group>
                                       <div className="d-grid">
-                                          <Button variant='primary' type='submit'>Create Account</Button>
+                                          <Button variant='primary' type='submit' onSubmit={handleSubmit}>Create Account</Button>
                                       </div>
                                   </Form>
                                   <div className="mt-3">
