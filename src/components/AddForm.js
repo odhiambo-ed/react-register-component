@@ -10,14 +10,6 @@ const AddForm = () => {
         cpassword: ""
     });
 
-    const [errormessages, setErrorMessages] = useState({
-        username: "",
-        email: "",
-        dob: "",
-        password: "",
-        cpassword: ""
-    });
-
     const handleChange = (e) => {
         const { name, value } = e.target;
         setValues(values => ({
@@ -49,10 +41,10 @@ const AddForm = () => {
                                               name='username'
                                               value={values.username}
                                               onChange={handleChange}
-                                              isInvalid={errormessages.username !== ""}
+                                              className={!values.username? 'is-invalid' : ''}
                                           />
                                           <Form.Control.Feedback type='invalid'>
-                                            {errormessages.username}
+                                              <p className="text-danger">Please provide a valid username.</p>
                                           </Form.Control.Feedback>
                                       </Form.Group>
                                       <Form.Group className='mb-3'>
@@ -63,7 +55,13 @@ const AddForm = () => {
                                               name='email'
                                               value={values.email}
                                               onChange={handleChange}
+                                              pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$"
+                                              required
                                           />
+                                          <
+                                          <div className="invalid-feedback">
+                                              <div className="text-danger">Please enter a valid email address.</div>
+                                          </div>
                                       </Form.Group>
                                       <Form.Group className='mb-3'>
                                           <Form.Label>Date Of Birth</Form.Label>
