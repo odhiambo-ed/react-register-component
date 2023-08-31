@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Row, Col, Card, Form, Button } from 'react-bootstrap';
 
 const AddForm = () => {
+    const pattern = "[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}$"
     const [values, setValues] = useState({
         username: "",
         email: "",
@@ -55,13 +56,11 @@ const AddForm = () => {
                                               name='email'
                                               value={values.email}
                                               onChange={handleChange}
-                                              pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$"
-                                              required
+                                              className={!pattern || !values.email.match(pattern) ? 'is-invalid' : ''}
                                           />
-                                          <
-                                          <div className="invalid-feedback">
-                                              <div className="text-danger">Please enter a valid email address.</div>
-                                          </div>
+                                          <Form.Control.Feedback type='invalid'>
+                                              <p className="text-danger">Please enter a valid email address.</p>
+                                          </Form.Control.Feedback>
                                       </Form.Group>
                                       <Form.Group className='mb-3'>
                                           <Form.Label>Date Of Birth</Form.Label>
